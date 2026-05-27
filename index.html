@@ -93,6 +93,7 @@
                 position: relative;
                 width: 100%;
                 overflow: hidden;
+                padding-top: 20px; /* 關鍵修復：預留上方高度空間，防止 absolute 的標籤被 overflow:hidden 裁切 */
                 padding-bottom: 4px;
             }
             .mobile-carousel-track {
@@ -472,6 +473,7 @@
             });
         }
 
+        // 調整第一輪播為 5 秒
         function nextSlide() {
             currentSlide = (currentSlide + 1) % totalSlides;
             updateCarousel();
@@ -517,6 +519,7 @@
             });
         }
 
+        // 調整第二輪播為 5 秒
         function nextSecondSlide() {
             currentSecondSlide = (currentSecondSlide + 1) % totalSecondSlides;
             updateSecondCarousel();
@@ -532,11 +535,11 @@
             updateSecondCarousel();
         }
 
-        // ------------------ 自動播放控制 ------------------
+        // ------------------ 自動播放控制 (皆調整為 5000ms / 5 秒) ------------------
         function startAutoPlay() {
-            autoPlayInterval = setInterval(nextSlide, 3500);
+            autoPlayInterval = setInterval(nextSlide, 5000); // 線上課程設定為 5 秒
             if (isMobile()) {
-                secondAutoPlayInterval = setInterval(nextSecondSlide, 4000);
+                secondAutoPlayInterval = setInterval(nextSecondSlide, 5000); // 獨家賣場與刊物也設定為 5 秒
             }
         }
 
