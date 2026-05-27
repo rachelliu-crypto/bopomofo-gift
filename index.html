@@ -2,33 +2,20 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>升小一大禮包</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght=400;500;700;900&display=swap');
 
-        /* 網頁主體強制防溢出與隱藏滾動條 */
-        html, body {
+        body {
             font-family: 'Noto Sans TC', sans-serif;
             background-color: transparent;
             margin: 0;
-            padding: 0;
-            width: 100%;
-            max-width: 100%;
-            overflow-x: hidden; /* 強制防止網頁左右晃動出現滑桿 */
+            overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             scroll-behavior: smooth;
-            -ms-overflow-style: none;  /* 針對 IE 和 Edge 隱藏滾動條 */
-            scrollbar-width: none;  /* 針對 Firefox 隱藏滾動條 */
-        }
-
-        /* 針對 Chrome, Safari, Opera 隱藏所有預設滾動條 */
-        ::-webkit-scrollbar {
-            display: none;
-            width: 0 !important;
-            height: 0 !important;
         }
 
         .bento-card {
@@ -85,7 +72,7 @@
         .carousel-container {
             position: relative;
             width: 100%;
-            overflow: hidden; /* 防止內容溢出 */
+            overflow: hidden;
             padding-bottom: 4px;
             margin-bottom: -4px;
         }
@@ -100,42 +87,23 @@
             padding: 4px;
         }
 
-        /* 手機版輪播特定結構 - 針對發燒網平台進行高度固定優化 */
+        /* 手機版輪播特定結構 */
         @media (max-width: 767px) {
-            /* 第一區塊手機版高度安全鎖定 */
-            #firstCarouselBlock {
-                height: 490px; /* 強制固定第一區塊大卡片高度 */
-            }
-            #firstCarouselBlock .carousel-container {
-                height: 410px; /* 強制固定內部輪播軌道高度 */
-            }
-            #firstCarouselBlock .carousel-slide {
-                height: 100%;
-            }
-
-            /* 第二區塊手機版高度安全鎖定 */
             .mobile-carousel-container {
                 position: relative;
                 width: 100%;
-                height: 460px; /* 關鍵安全高度：強制固定整個第二區塊容器高度，預留標籤與控制鈕空間 */
-                overflow: hidden; /* 關鍵防護：不允許手機版顯示任何溢出滑桿 */
-                padding-top: 20px; /* 預留上方高度空間，防止 absolute 的標籤被裁切 */
+                overflow: hidden;
                 padding-bottom: 4px;
             }
             .mobile-carousel-track {
                 display: flex;
                 transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
                 width: 100%;
-                height: 385px; /* 固定卡片軌道高度 */
             }
             .mobile-carousel-slide {
                 width: 100%;
-                height: 100%; /* 強制填滿軌道高度 */
                 flex-shrink: 0;
                 padding: 4px;
-            }
-            .mobile-carousel-slide .bento-card {
-                height: 100%; /* 強制卡片填滿 slide 高度，確保兩張卡片高度絕對一致 */
             }
         }
     </style>
@@ -156,7 +124,7 @@
                     
                     <!-- Slide 01 (幼小銜接必修課 - 已修改為 SC10 現折 350 元) -->
                     <div class="carousel-slide">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-center max-w-4xl mx-auto w-full h-full">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-center max-w-4xl mx-auto w-full">
                             <!-- 縮小圖片容器：w-full max-w-[280px]，大幅降低垂直高度 -->
                             <div class="flex justify-center md:justify-end w-full">
                                 <div class="w-full max-w-[280px] bg-slate-50 rounded-2xl flex flex-col items-center justify-center border border-gray-100 aspect-[16/9] overflow-hidden relative group">
@@ -201,7 +169,7 @@
 
                     <!-- Slide 02 -->
                     <div class="carousel-slide">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-center max-w-4xl mx-auto w-full h-full">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-center max-w-4xl mx-auto w-full">
                             <div class="flex justify-center md:justify-end w-full">
                                 <div class="w-full max-w-[280px] bg-slate-50 rounded-2xl flex flex-col items-center justify-center border border-gray-100 aspect-[16/9] overflow-hidden relative group">
                                     <img src="https://image.fevercdn.com?bucket=picture-original.fevercdn.com&filepath=parenting%2F5%2F2103%2Ff3a7b03acb762aab437e871c.png" alt="兒童識字趴" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
@@ -244,7 +212,7 @@
 
                     <!-- Slide 03 -->
                     <div class="carousel-slide">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-center max-w-4xl mx-auto w-full h-full">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-center max-w-4xl mx-auto w-full">
                             <div class="flex justify-center md:justify-end w-full">
                                 <div class="w-full max-w-[280px] bg-slate-50 rounded-2xl flex flex-col items-center justify-center border border-gray-100 aspect-[16/9] overflow-hidden relative group">
                                     <img src="https://image.fevercdn.com?bucket=picture-original.fevercdn.com&filepath=parenting%2F5%2F2103%2Fa95a40ec737b720fb6a4002c.png" alt="兒童注音讀寫趴" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
@@ -287,7 +255,7 @@
 
                     <!-- Slide 04 -->
                     <div class="carousel-slide">
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-center max-w-4xl mx-auto w-full h-full">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 items-center max-w-4xl mx-auto w-full">
                             <div class="flex justify-center md:justify-end w-full">
                                 <div class="w-full max-w-[280px] bg-slate-50 rounded-2xl flex flex-col items-center justify-center border border-gray-100 aspect-[16/9] overflow-hidden relative group">
                                     <img src="https://image.fevercdn.com?bucket=picture-original.fevercdn.com&filepath=parenting%2F5%2F2103%2Fd1c6b7dce7ac6f503b13e6e4.png" alt="溫美玉兒童造句趴" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
@@ -504,7 +472,6 @@
             });
         }
 
-        // 調整第一輪播為 5 秒
         function nextSlide() {
             currentSlide = (currentSlide + 1) % totalSlides;
             updateCarousel();
@@ -550,7 +517,6 @@
             });
         }
 
-        // 調整第二輪播為 5 秒
         function nextSecondSlide() {
             currentSecondSlide = (currentSecondSlide + 1) % totalSecondSlides;
             updateSecondCarousel();
@@ -566,11 +532,11 @@
             updateSecondCarousel();
         }
 
-        // ------------------ 自動播放控制 (皆調整為 5000ms / 5 秒) ------------------
+        // ------------------ 自動播放控制 ------------------
         function startAutoPlay() {
-            autoPlayInterval = setInterval(nextSlide, 5000); // 線上課程設定為 5 秒
+            autoPlayInterval = setInterval(nextSlide, 3500);
             if (isMobile()) {
-                secondAutoPlayInterval = setInterval(nextSecondSlide, 5000); // 獨家賣場與刊物也設定為 5 秒
+                secondAutoPlayInterval = setInterval(nextSecondSlide, 4000);
             }
         }
 
