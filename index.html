@@ -86,6 +86,26 @@
             flex-shrink: 0;
             padding: 4px;
         }
+
+        /* 手機版輪播特定結構 */
+        @media (max-width: 767px) {
+            .mobile-carousel-container {
+                position: relative;
+                width: 100%;
+                overflow: hidden;
+                padding-bottom: 4px;
+            }
+            .mobile-carousel-track {
+                display: flex;
+                transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+                width: 100%;
+            }
+            .mobile-carousel-slide {
+                width: 100%;
+                flex-shrink: 0;
+                padding: 4px;
+            }
+        }
     </style>
 </head>
 <body class="pt-8 md:pt-10 pb-8 px-2 md:px-4">
@@ -94,8 +114,7 @@
     <div class="max-w-5xl mx-auto flex flex-col gap-8 md:gap-10">
 
         <!-- ==================== 第一個區塊：精選線上課程 (輪播圖) ==================== -->
-        <!-- 已將卡片 padding 從 pt-10 pb-5 縮小為 pt-8 pb-4，節省高度 -->
-        <div class="bento-card shadow-classic pt-8 pb-4 px-4 sm:px-8 md:pt-10 md:pb-5 md:px-12 relative">
+        <div class="bento-card shadow-classic pt-8 pb-4 px-4 sm:px-8 md:pt-10 md:pb-5 md:px-12 relative" id="firstCarouselBlock">
             <span class="absolute -top-5 left-6 bg-amber-400 text-[#483a7a] border-2 border-[#483a7a] text-sm md:text-base font-black px-6 py-1.5 rounded-full shadow-md z-10">
                 🏆 精選線上課程
             </span>
@@ -112,7 +131,7 @@
                                     <img src="https://image.fevercdn.com?bucket=picture-original.fevercdn.com&filepath=parenting%2F5%2F2103%2Ff8500573f995b6d2a45d2fa6.png" alt="幼小銜接必修課" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
                                 </div>
                             </div>
-                            <!-- 文字與代碼區：高度微調緊湊 -->
+                            <!-- 文字與代碼區 -->
                             <div class="flex flex-col justify-between h-full space-y-2 text-center md:text-left max-w-sm mx-auto md:mx-0 w-full">
                                 <div class="space-y-1">
                                     <h3 class="text-lg md:text-xl font-black text-gray-950 tracking-tight">幼小銜接必修課</h3>
@@ -121,7 +140,7 @@
                                     </p>
                                 </div>
                                 
-                                <!-- 緊湊型折扣券區 (不搶眼灰底＋細框，高度大幅縮小) -->
+                                <!-- 折扣券區 -->
                                 <div onclick="copyCouponCode('SC10', this)" data-slide-index="1" class="w-full bg-slate-50 hover:bg-slate-100/70 border border-slate-200 hover:border-[#483a7a]/30 rounded-xl py-2 px-3 flex items-center justify-between text-slate-800 shadow-sm cursor-pointer transition-all duration-200 active:scale-[0.98] group" title="點擊複製優惠代碼">
                                     <div class="text-left flex-grow flex-shrink min-w-0 pr-1">
                                         <span class="text-[10px] text-[#483a7a] font-black tracking-widest block mb-0.5">
@@ -132,7 +151,7 @@
                                         </p>
                                     </div>
                                     
-                                    <!-- 複製按鈕回饋區 (寬度縮窄) -->
+                                    <!-- 複製按鈕回饋區 -->
                                     <div class="flex flex-col items-center justify-center shrink-0 ml-1.5 pl-1.5 border-l border-slate-200 transition-all duration-300 w-[56px]">
                                         <i class="copy-icon fa-solid fa-copy text-[#483a7a] text-base group-hover:scale-110 transition-transform"></i>
                                         <span class="copy-text text-[8px] text-slate-500 font-bold mt-0.5 scale-90 whitespace-nowrap">點擊複製</span>
@@ -164,7 +183,7 @@
                                     </p>
                                 </div>
                                 
-                                <!-- 緊湊型折扣券區 (GPM300 / 300元) -->
+                                <!-- 折扣券區 -->
                                 <div onclick="copyCouponCode('GPM300', this)" data-slide-index="2" class="w-full bg-slate-50 hover:bg-slate-100/70 border border-slate-200 hover:border-[#483a7a]/30 rounded-xl py-2 px-3 flex items-center justify-between text-slate-800 shadow-sm cursor-pointer transition-all duration-200 active:scale-[0.98] group" title="點擊複製優惠代碼">
                                     <div class="text-left flex-grow flex-shrink min-w-0 pr-1">
                                         <span class="text-[10px] text-[#483a7a] font-black tracking-widest block mb-0.5">
@@ -207,7 +226,7 @@
                                     </p>
                                 </div>
                                 
-                                <!-- 緊湊型折扣券區 (GPM300 / 300元) -->
+                                <!-- 折扣券區 -->
                                 <div onclick="copyCouponCode('GPM300', this)" data-slide-index="3" class="w-full bg-slate-50 hover:bg-slate-100/70 border border-slate-200 hover:border-[#483a7a]/30 rounded-xl py-2 px-3 flex items-center justify-between text-slate-800 shadow-sm cursor-pointer transition-all duration-200 active:scale-[0.98] group" title="點擊複製優惠代碼">
                                     <div class="text-left flex-grow flex-shrink min-w-0 pr-1">
                                         <span class="text-[10px] text-[#483a7a] font-black tracking-widest block mb-0.5">
@@ -250,7 +269,7 @@
                                     </p>
                                 </div>
                                 
-                                <!-- 緊湊型折扣券區 (GPM300 / 300元) -->
+                                <!-- 折扣券區 -->
                                 <div onclick="copyCouponCode('GPM300', this)" data-slide-index="4" class="w-full bg-slate-50 hover:bg-slate-100/70 border border-slate-200 hover:border-[#483a7a]/30 rounded-xl py-2 px-3 flex items-center justify-between text-slate-800 shadow-sm cursor-pointer transition-all duration-200 active:scale-[0.98] group" title="點擊複製優惠代碼">
                                     <div class="text-left flex-grow flex-shrink min-w-0 pr-1">
                                         <span class="text-[10px] text-[#483a7a] font-black tracking-widest block mb-0.5">
@@ -280,7 +299,7 @@
                 </div>
             </div>
 
-            <!-- Carousel Controls (間距微調調緊) -->
+            <!-- Carousel Controls -->
             <div class="flex items-center justify-between mt-2 pt-2 border-t border-gray-100 relative">
                 <button onclick="prevSlide()" class="w-5 h-5 rounded-full border border-[#483a7a] flex items-center justify-center text-[#483a7a] hover:bg-amber-100 transition-colors z-10">
                     <i class="fa-solid fa-chevron-left text-[7px]"></i>
@@ -299,70 +318,100 @@
             </div>
         </div>
 
-        <!-- ==================== 第二個區塊：獨家賣場 & 推薦刊物 ==================== -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-stretch">
-            
-            <!-- 獨家賣場卡片 -->
-            <div class="bento-card shadow-classic pt-8 pb-5 px-5 sm:px-6 flex flex-col justify-between">
-                <span class="absolute -top-4 left-6 bg-amber-400 text-[#483a7a] border-2 border-[#483a7a] text-xs md:text-sm font-black px-4 py-1 rounded-full shadow-md z-10">
-                    🛍️ 獨家賣場
-                </span>
+        <!-- ==================== 第二個區塊：獨家賣場 & 推薦刊物 (手機自動輪播設定) ==================== -->
+        <!-- 包裹一個外層容器，並在手機版限制 overflow，讓內容能夠正常輪播 -->
+        <div class="mobile-carousel-container w-full overflow-hidden md:overflow-visible" id="secondCarouselBlock">
+            <div class="mobile-carousel-track md:grid md:grid-cols-2 md:gap-8 md:translate-x-0" id="secondCarouselTrack" style="transform: translateX(0%);">
                 
-                <div class="mt-2 space-y-3 flex-grow flex flex-col justify-between">
-                    <div class="w-[70%] max-w-[220px] mx-auto bg-slate-50 rounded-2xl flex flex-col items-center justify-center aspect-square overflow-hidden relative group">
-                        <img src="https://image.fevercdn.com?bucket=picture-original.fevercdn.com&filepath=parenting%2F5%2F2103%2Fe6b8890500aa363571e25b64.png" alt="電商賣場精選" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-                    </div>
-                    
-                    <div class="space-y-1 text-center md:text-left">
-                        <h3 class="text-lg font-black text-gray-950 tracking-tight">精選注音教具、練習本</h3>
-                        <p class="text-gray-600 text-xs leading-relaxed">
-                            最適合幼小銜接的注音拼音卡、練習本等，讓孩子在遊戲中輕鬆做足入學準備，自信迎接新生活！
-                        </p>
+                <!-- 1. 獨家賣場卡片 -->
+                <div class="mobile-carousel-slide w-full md:w-auto flex-shrink-0 md:flex-shrink">
+                    <div class="bento-card shadow-classic pt-8 pb-5 px-5 sm:px-6 flex flex-col justify-between h-full relative">
+                        <span class="absolute -top-4 left-6 bg-amber-400 text-[#483a7a] border-2 border-[#483a7a] text-xs md:text-sm font-black px-4 py-1 rounded-full shadow-md z-10">
+                            🛍️ 獨家賣場
+                        </span>
+                        
+                        <div class="mt-2 space-y-3 flex-grow flex flex-col justify-between">
+                            <div class="w-[70%] max-w-[220px] mx-auto bg-slate-50 rounded-2xl flex flex-col items-center justify-center aspect-square overflow-hidden relative group">
+                                <img src="https://image.fevercdn.com?bucket=picture-original.fevercdn.com&filepath=parenting%2F5%2F2103%2Fe6b8890500aa363571e25b64.png" alt="電商賣場精選" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                            </div>
+                            
+                            <div class="space-y-1 text-center md:text-left">
+                                <h3 class="text-lg font-black text-gray-950 tracking-tight">精選注音教具、練習本</h3>
+                                <p class="text-gray-600 text-xs leading-relaxed">
+                                    最適合幼小銜接的注音拼音卡、練習本等，讓孩子在遊戲中輕鬆做足入學準備，自信迎接新生活！
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="pt-3 border-t border-gray-100 w-full mt-3">
+                            <a href="https://shopping.parenting.com.tw/v2/official/SalePageCategory/511573?sortMode=Curator" target="_blank" rel="noopener noreferrer" class="shine-btn w-full bg-amber-400 hover:bg-amber-300 text-gray-950 py-2.5 rounded-xl font-black text-xs md:text-sm text-center block">
+                                前往賣場選購 <i class="fa-solid fa-bag-shopping ml-1"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                <div class="pt-3 border-t border-gray-100 w-full mt-3">
-                    <a href="https://shopping.parenting.com.tw/v2/official/SalePageCategory/511573?sortMode=Curator" target="_blank" rel="noopener noreferrer" class="shine-btn w-full bg-amber-400 hover:bg-amber-300 text-gray-950 py-2.5 rounded-xl font-black text-xs md:text-sm text-center block">
-                        前往賣場選購 <i class="fa-solid fa-bag-shopping ml-1"></i>
-                    </a>
+                <!-- 2. 推薦刊物卡片 -->
+                <div class="mobile-carousel-slide w-full md:w-auto flex-shrink-0 md:flex-shrink">
+                    <div class="bento-card shadow-classic pt-8 pb-5 px-5 sm:px-6 flex flex-col justify-between h-full relative">
+                        <span class="absolute -top-4 left-6 bg-amber-400 text-[#483a7a] border-2 border-[#483a7a] text-xs md:text-sm font-black px-4 py-1 rounded-full shadow-md z-10">
+                            ✨ 推薦刊物
+                        </span>
+                        
+                        <div class="mt-2 space-y-3 flex-grow flex flex-col justify-between">
+                            <div class="w-[75%] max-w-[240px] mx-auto bg-slate-50 rounded-2xl flex flex-col items-center justify-center aspect-square overflow-hidden relative group">
+                                <img src="https://image.fevercdn.com?bucket=picture-original.fevercdn.com&filepath=parenting%2F5%2F2103%2F643b272a3bbfe4fdbea1c0c7.png" alt="小行星幼兒誌" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+                            </div>
+                            
+                            <div class="space-y-1 text-center md:text-left">
+                                <h3 class="text-lg font-black text-gray-950 tracking-tight">小行星幼兒誌</h3>
+                                <p class="text-gray-600 text-xs leading-relaxed">
+                                    專為 3-8 歲幼兒規劃的閱讀啟蒙刊物。透過多元故事單元，引導孩子從「聽故事」過渡到「獨立閱讀」。
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="pt-3 border-t border-gray-100 w-full mt-3">
+                            <a href="https://littlestar.parenting.com.tw/info/mag-40" target="_blank" rel="noopener noreferrer" class="shine-btn w-full bg-amber-400 hover:bg-amber-300 text-gray-950 py-2.5 rounded-xl font-black text-xs md:text-sm text-center block">
+                                了解更多資訊 <i class="fa-solid fa-circle-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
+
             </div>
 
-            <!-- 推薦刊物卡片 -->
-            <div class="bento-card shadow-classic pt-8 pb-5 px-5 sm:px-6 flex flex-col justify-between">
-                <span class="absolute -top-4 left-6 bg-amber-400 text-[#483a7a] border-2 border-[#483a7a] text-xs md:text-sm font-black px-4 py-1 rounded-full shadow-md z-10">
-                    ✨ 推薦刊物
-                </span>
+            <!-- 第二區塊：手機專用輪播控制鈕 (在 md 尺寸以上自動隱藏) -->
+            <div class="flex items-center justify-between mt-3 px-2 md:hidden relative">
+                <button onclick="prevSecondSlide()" class="w-6 h-6 rounded-full border border-[#483a7a] flex items-center justify-center text-[#483a7a] hover:bg-amber-100 transition-colors z-10">
+                    <i class="fa-solid fa-chevron-left text-[8px]"></i>
+                </button>
                 
-                <div class="mt-2 space-y-3 flex-grow flex flex-col justify-between">
-                    <div class="w-[75%] max-w-[240px] mx-auto bg-slate-50 rounded-2xl flex flex-col items-center justify-center aspect-square overflow-hidden relative group">
-                        <img src="https://image.fevercdn.com?bucket=picture-original.fevercdn.com&filepath=parenting%2F5%2F2103%2F643b272a3bbfe4fdbea1c0c7.png" alt="小行星幼兒誌" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
-                    </div>
-                    
-                    <div class="space-y-1 text-center md:text-left">
-                        <h3 class="text-lg font-black text-gray-950 tracking-tight">小行星幼兒誌</h3>
-                        <p class="text-gray-600 text-xs leading-relaxed">
-                            專為 3-8 歲幼兒規劃的閱讀啟蒙刊物。透過多元故事單元，引導孩子從「聽故事」過渡到「獨立閱讀」。
-                        </p>
-                    </div>
+                <div class="absolute left-1/2 transform -translate-x-1/2 flex gap-1.5" id="secondCarouselDots">
+                    <span onclick="goToSecondSlide(0)" class="w-2 h-2 rounded-full cursor-pointer transition-all duration-300 bg-[#483a7a]"></span>
+                    <span onclick="goToSecondSlide(1)" class="w-2 h-2 rounded-full cursor-pointer transition-all duration-300 bg-gray-300"></span>
                 </div>
-
-                <div class="pt-3 border-t border-gray-100 w-full mt-3">
-                    <a href="https://littlestar.parenting.com.tw/info/mag-40" target="_blank" rel="noopener noreferrer" class="shine-btn w-full bg-amber-400 hover:bg-amber-300 text-gray-950 py-2.5 rounded-xl font-black text-xs md:text-sm text-center block">
-                        了解更多資訊 <i class="fa-solid fa-circle-arrow-right ml-1"></i>
-                    </a>
-                </div>
+                
+                <button onclick="nextSecondSlide()" class="w-6 h-6 rounded-full border border-[#483a7a] flex items-center justify-center text-[#483a7a] hover:bg-amber-100 transition-colors z-10">
+                    <i class="fa-solid fa-chevron-right text-[8px]"></i>
+                </button>
             </div>
-
         </div>
+
     </div>
 
     <!-- 輪播控制 & 複製代碼 JavaScript -->
     <script>
+        // ------------------ 輪播一：精選線上課程 ------------------
         let currentSlide = 0;
         const totalSlides = 4;
         let autoPlayInterval;
-        let copyTimeouts = {}; // 用於獨立管理各課程卡片的複製成功還原定時器
+        let copyTimeouts = {};
+
+        // ------------------ 輪播二：獨家賣場 & 推薦刊物 (手機版) ------------------
+        let currentSecondSlide = 0;
+        const totalSecondSlides = 2;
+        let secondAutoPlayInterval;
 
         // 複製代碼功能 (支援 iframe 安全限制，並配備原地局部回饋)
         function copyCouponCode(text, element) {
@@ -380,19 +429,16 @@
                     const statusText = element.querySelector(".copy-text");
 
                     if (icon && statusText) {
-                        // 轉換為複製成功的綠色打勾樣式
                         icon.className = "copy-icon fa-solid fa-check text-emerald-500 text-base scale-110 transition-all duration-200";
                         statusText.textContent = "複製成功！";
                         statusText.className = "copy-text text-[8px] text-emerald-600 font-bold mt-0.5 scale-90 whitespace-nowrap transition-all duration-200";
 
                         const slideIndex = element.getAttribute('data-slide-index') || 'default';
                         
-                        // 清除該卡片上一次未完成的還原定時，避免衝突
                         if (copyTimeouts[slideIndex]) {
                             clearTimeout(copyTimeouts[slideIndex]);
                         }
 
-                        // 2 秒後還原為初始樣式
                         copyTimeouts[slideIndex] = setTimeout(() => {
                             icon.className = "copy-icon fa-solid fa-copy text-[#483a7a] text-base group-hover:scale-110 transition-all duration-200";
                             statusText.textContent = "點擊複製";
@@ -407,6 +453,7 @@
             }
         }
 
+        // ------------------ 輪播一控制邏輯 ------------------
         function updateCarousel() {
             const track = document.getElementById('carouselTrack');
             if (track) {
@@ -440,24 +487,118 @@
             updateCarousel();
         }
 
+        // ------------------ 輪播二控制邏輯 (僅在手機版作用) ------------------
+        function isMobile() {
+            return window.innerWidth < 768;
+        }
+
+        function updateSecondCarousel() {
+            // 僅在手機版才進行 Transform 移動
+            if (!isMobile()) {
+                const track = document.getElementById('secondCarouselTrack');
+                if (track) track.style.transform = 'translateX(0%)';
+                return;
+            }
+
+            const track = document.getElementById('secondCarouselTrack');
+            if (track) {
+                track.style.transform = `translateX(-${currentSecondSlide * 100}%)`;
+            }
+            
+            const dots = document.querySelectorAll('#secondCarouselDots span');
+            dots.forEach((dot, index) => {
+                if (index === currentSecondSlide) {
+                    dot.classList.remove('bg-gray-300');
+                    dot.classList.add('bg-[#483a7a]', 'w-4');
+                } else {
+                    dot.classList.remove('bg-[#483a7a]', 'w-4');
+                    dot.classList.add('bg-gray-300', 'w-2');
+                }
+            });
+        }
+
+        function nextSecondSlide() {
+            currentSecondSlide = (currentSecondSlide + 1) % totalSecondSlides;
+            updateSecondCarousel();
+        }
+
+        function prevSecondSlide() {
+            currentSecondSlide = (currentSecondSlide - 1 + totalSecondSlides) % totalSecondSlides;
+            updateSecondCarousel();
+        }
+
+        function goToSecondSlide(slideIndex) {
+            currentSecondSlide = slideIndex;
+            updateSecondCarousel();
+        }
+
+        // ------------------ 自動播放控制 ------------------
         function startAutoPlay() {
-            autoPlayInterval = setInterval(nextSlide, 3000);
+            autoPlayInterval = setInterval(nextSlide, 3500);
+            if (isMobile()) {
+                secondAutoPlayInterval = setInterval(nextSecondSlide, 4000);
+            }
         }
 
         function stopAutoPlay() {
             clearInterval(autoPlayInterval);
+            clearInterval(secondAutoPlayInterval);
         }
 
+        // ------------------ 手勢滑動 (Swipe) 支援 ------------------
+        function enableTouchSwipe(elementId, nextFn, prevFn) {
+            const el = document.getElementById(elementId);
+            if (!el) return;
+
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            el.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            el.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleGesture();
+            }, { passive: true });
+
+            function handleGesture() {
+                const swipeThreshold = 50; // 最少滑動 50px 才觸發
+                if (touchStartX - touchEndX > swipeThreshold) {
+                    nextFn(); // 向左滑，下一張
+                } else if (touchEndX - touchStartX > swipeThreshold) {
+                    prevFn(); // 向右滑，上一張
+                }
+            }
+        }
+
+        // ------------------ 初始化 ------------------
         window.onload = function () {
             updateCarousel();
+            updateSecondCarousel();
             startAutoPlay();
 
-            // 當滑鼠移入「精選線上課程」大卡片時暫停自動播放
-            const courseCardElement = document.querySelector('.bento-card.shadow-classic.pt-8');
-            if (courseCardElement) {
-                courseCardElement.addEventListener('mouseenter', stopAutoPlay);
-                courseCardElement.addEventListener('mouseleave', startAutoPlay);
+            // 觸摸與滑動綁定
+            enableTouchSwipe('carouselTrack', nextSlide, prevSlide);
+            enableTouchSwipe('secondCarouselTrack', nextSecondSlide, prevSecondSlide);
+
+            // 當滑鼠移入大卡片時暫停自動播放
+            const firstBlock = document.getElementById('firstCarouselBlock');
+            if (firstBlock) {
+                firstBlock.addEventListener('mouseenter', stopAutoPlay);
+                firstBlock.addEventListener('mouseleave', startAutoPlay);
             }
+
+            const secondBlock = document.getElementById('secondCarouselBlock');
+            if (secondBlock) {
+                secondBlock.addEventListener('mouseenter', stopAutoPlay);
+                secondBlock.addEventListener('mouseleave', startAutoPlay);
+            }
+        }
+
+        // 視窗大小改變時，校正第二輪播的狀態
+        window.onresize = function() {
+            updateSecondCarousel();
         }
     </script>
 
