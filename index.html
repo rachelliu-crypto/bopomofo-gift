@@ -2,20 +2,33 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>升小一大禮包</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght=400;500;700;900&display=swap');
 
-        body {
+        /* 網頁主體強制防溢出與隱藏滾動條 */
+        html, body {
             font-family: 'Noto Sans TC', sans-serif;
             background-color: transparent;
             margin: 0;
-            overflow-x: hidden;
+            padding: 0;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden; /* 強制防止網頁左右晃動出現滑桿 */
             -webkit-font-smoothing: antialiased;
             scroll-behavior: smooth;
+            -ms-overflow-style: none;  /* 針對 IE 和 Edge 隱藏滾動條 */
+            scrollbar-width: none;  /* 針對 Firefox 隱藏滾動條 */
+        }
+
+        /* 針對 Chrome, Safari, Opera 隱藏所有預設滾動條 */
+        ::-webkit-scrollbar {
+            display: none;
+            width: 0 !important;
+            height: 0 !important;
         }
 
         .bento-card {
@@ -72,7 +85,7 @@
         .carousel-container {
             position: relative;
             width: 100%;
-            overflow: hidden;
+            overflow: hidden; /* 防止內容溢出 */
             padding-bottom: 4px;
             margin-bottom: -4px;
         }
@@ -92,8 +105,8 @@
             .mobile-carousel-container {
                 position: relative;
                 width: 100%;
-                overflow: hidden;
-                padding-top: 20px; /* 關鍵修復：預留上方高度空間，防止 absolute 的標籤被 overflow:hidden 裁切 */
+                overflow: hidden; /* 關鍵防護：不允許手機版顯示任何超出卡片的範圍 */
+                padding-top: 20px; /* 預留上方高度空間，防止 absolute 的標籤被裁切 */
                 padding-bottom: 4px;
             }
             .mobile-carousel-track {
